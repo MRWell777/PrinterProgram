@@ -7,6 +7,13 @@ from user_window import open_user_window
 from admin_window import open_admin_window
 from employee_window import open_employee_window
 
+def close_window():
+    window.quit()  # Остановить главный цикл
+    window.destroy()  # Уничтожить окно
+
+# Запуск приложения
+def run():
+    window.mainloop()
 
 window = Tk()
 
@@ -157,7 +164,7 @@ caps_label = Label(frame, text="", font=("v_CCMeanwhile",14), bg="#000c25")
 caps_label.pack(pady=10)
 
 # Кнопка Выхода
-button_exit = Button(window, image=photo, bg="#000213", bd = 0, command=window.destroy)  # Цвет фона можно изменить
+button_exit = Button(window, image=photo, bg="#000213", bd = 0, command=close_window)  # Цвет фона можно изменить
 button_exit.pack(anchor=NE)
 button_exit.config(cursor="hand2")
 
@@ -165,6 +172,3 @@ button_exit.config(cursor="hand2")
 toggle_button = Button(window, image = buttonWin, bg="#000213", bd = 0, command=toggle_fullscreen)
 toggle_button.pack(anchor=NE)
 toggle_button.config(cursor="hand2")
-
-# Запуск приложения
-window.mainloop()
