@@ -13,6 +13,7 @@ def open_add_order_window(parent, on_close_callback):
 
     comboboxes = []
 
+    #TODO: заменить на вызов с БД
     options = ["Выберите элемент", "Ремонт", "Установка","Диагностика"]
 
     Label(add_window, text="Количество принтеров").pack(pady=5)
@@ -35,7 +36,7 @@ def open_add_order_window(parent, on_close_callback):
         if not combined or not quantity.isdigit():
             messagebox.showerror("Ошибка", "Введите корректные данные")
             return
-        conn = sqlite3.connect("orders.db")
+        conn = sqlite3.connect("databases/orders.db")
         cursor = conn.cursor()
         cursor.execute("INSERT INTO orders (item, quantity) VALUES (?, ?)", (combined, int(quantity)))
         conn.commit()
@@ -48,6 +49,6 @@ def open_add_order_window(parent, on_close_callback):
     txt.pack(pady=10)
     frame.pack(pady=20)
 
-    add_combobox()  # начальный комбобокс
+    add_combobox()  # начальный комбо-бокс
     Button(add_window, text="Добавить услугу", command=add_combobox).pack(pady=10)
     Button(add_window, text="Сохранить", command=save_order).pack(pady=10)

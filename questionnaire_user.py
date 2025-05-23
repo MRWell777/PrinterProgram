@@ -190,7 +190,7 @@ def open_quest_user(parent,username):
 
         # 4. Получаем ID статуса "Ожидает"
         try:
-            status_conn = sqlite3.connect("statuses.db")
+            status_conn = sqlite3.connect("databases/statuses.db")
             status_cursor = status_conn.cursor()
             status_cursor.execute("SELECT id FROM statuses WHERE name = ?", ("Ожидает",))
             status_id = status_cursor.fetchone()[0]
@@ -201,7 +201,7 @@ def open_quest_user(parent,username):
 
             # 5. Сохраняем в orders.db
         try:
-            order_conn = sqlite3.connect("order.db")
+            order_conn = sqlite3.connect("databases/order.db")
             order_cursor = order_conn.cursor()
             order_cursor.execute("""
             INSERT INTO orders (

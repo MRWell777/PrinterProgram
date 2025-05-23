@@ -9,7 +9,7 @@ root.geometry("1500x500")
 root.configure(bg="#000421")
 
 # Подключение к двум базам данных
-conn = sqlite3.connect("order.db")
+conn = sqlite3.connect("databases/order.db")
 conn.execute("ATTACH DATABASE 'statuses.db' AS status_db")
 conn.execute("ATTACH DATABASE 'users.db' AS username")
 cursor = conn.cursor()

@@ -1,7 +1,7 @@
 import sqlite3
 
 def init_db():
-    conn = sqlite3.connect("users.db")
+    conn = sqlite3.connect("databases/users.db")
     cursor = conn.cursor()
 
     # Создаём таблицу пользователей

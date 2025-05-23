@@ -42,7 +42,7 @@ def edit_selected_order(parent, tree, on_close_callback):
         if not new_item or not new_qty.isdigit():
             messagebox.showerror("Ошибка", "Введите корректные данные")
             return
-        conn = sqlite3.connect("orders.db")
+        conn = sqlite3.connect("databases/orders.db")
         cursor = conn.cursor()
         cursor.execute("UPDATE orders SET item = ?, quantity = ? WHERE id = ?", (new_item, int(new_qty), order_id))
         conn.commit()

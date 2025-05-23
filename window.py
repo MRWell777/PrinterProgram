@@ -128,7 +128,7 @@ def check_login():
     username = login_entry.get()
     password = password_entry.get()
 
-    conn = sqlite3.connect("users.db")
+    conn = sqlite3.connect("databases/users.db")
     cursor = conn.cursor()
 
     cursor.execute("SELECT role FROM users WHERE username = ? AND password = ?", (username, password))
@@ -139,7 +139,7 @@ def check_login():
         role = user[0]
         
         if role == "admin":
-            open_admin_window(window,password_entry,username)
+            open_admin_window(window, password_entry)
         elif role == "employee":
             open_employee_window(window,password_entry,username)
         else:

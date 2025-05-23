@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect("order.db")
+conn = sqlite3.connect("databases/order.db")
 cursor = conn.cursor()
 
 cursor.execute("""

@@ -1,7 +1,8 @@
 from tkinter import Toplevel, Label, Button
 from PIL import Image, ImageTk
 
-def open_admin_window(win,password_entry,username):
+# Если не используется, нахуя сюда его передавать?
+def open_admin_window(win, password_entry):
     admin_window = Toplevel(win)
     admin_window.title("Личный кабинет пользователя")
     admin_window.geometry("400x300")
@@ -26,7 +27,7 @@ def open_admin_window(win,password_entry,username):
     def go_back():
         password_entry.delete(0, 'end')
         admin_window.destroy()         # закрываем личный кабинет
-        win.deiconify()     # возвращаем главное окно
+        win.deiconify()     # возвращаем в главное очко
         
 
     Button(admin_window, image=admin_window.photo,bg="#000213",bd = 0, command=go_back).place(x=30, y=30)

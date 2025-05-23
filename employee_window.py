@@ -114,7 +114,7 @@ def open_employee_window(win,password_entry,username):
 
         confirm = messagebox.askyesno("Подтверждение", f"Удалить заказ с ID {order_id}?")
         if confirm:
-            conn = sqlite3.connect("orders.db")
+            conn = sqlite3.connect("databases/orders.db")
             cursor = conn.cursor()
             cursor.execute("DELETE FROM orders WHERE id = ?", (order_id,))
             conn.commit()
@@ -178,7 +178,7 @@ def open_employee_window(win,password_entry,username):
     def refresh_orders():
         for row in orders_tree.get_children():
             orders_tree.delete(row)
-        conn = sqlite3.connect("orders.db")
+        conn = sqlite3.connect("databases/orders.db")
         cursor = conn.cursor()
         cursor.execute("SELECT id, item, quantity FROM orders ")
         for row in cursor.fetchall():
