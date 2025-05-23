@@ -1,7 +1,7 @@
 from tkinter import Toplevel, Label, Button
 from PIL import Image, ImageTk
 
-def open_admin_window(win,password_entry):
+def open_admin_window(win,password_entry,username):
     admin_window = Toplevel(win)
     admin_window.title("Личный кабинет пользователя")
     admin_window.geometry("400x300")

@@ -15,8 +15,11 @@ def init_db():
     ''')
 
     # Добавляем пользователей (если их нет)
-    cursor.execute("INSERT OR IGNORE INTO users (username, password, role) VALUES ('user1', 'password123', 'user')")
-    cursor.execute("INSERT OR IGNORE INTO users (username, password, role) VALUES ('admin', 'adminpass', 'admin')")
+    cursor.execute("INSERT OR IGNORE INTO users (username, password, role) VALUES ('emp1', '1', 'employee')")
+    cursor.execute("INSERT OR IGNORE INTO users (username, password, role) VALUES ('emp2', '2', 'employee')")
+    cursor.execute("INSERT OR IGNORE INTO users (username, password, role) VALUES ('admin', '123', 'admin')")
+    cursor.execute("INSERT OR IGNORE INTO users (username, password, role) VALUES ('user1', '1', 'user')")
+    cursor.execute("INSERT OR IGNORE INTO users (username, password, role) VALUES ('user2', '2', 'user')")
 
     conn.commit()
     conn.close()
